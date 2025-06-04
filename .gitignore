@@ -1,0 +1,35 @@
+# Dropbox files
+.dropbox
+.dropbox.attr
+.dropbox.cache
+Icon?
+Icon
+.DS_Store
+.DS_Store?
+
+
+# macOS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*~
+.tmp
+*.tmp
+*.swp
+*.swo
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Backup files
+*.bak
+*.backup

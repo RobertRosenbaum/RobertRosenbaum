@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+
+	<head>
+		<title>Neural Dynamics and Computing Group at Notre Dame - Robert Rosenbaum</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		
+		<link id="wsite-base-style" rel="stylesheet" type="text/css" href="https://cdn2.editmysite.com/css/sites.css?buildTime=1234" />
+<link rel="stylesheet" type="text/css" href="https://cdn2.editmysite.com/css/old/fancybox.css?1234" />
+<link rel="stylesheet" type="text/css" href="https://cdn2.editmysite.com/css/social-icons.css?buildtime=1234" media="screen,projection" />
+
+<link rel="stylesheet" type="text/css" href="files/main_style.css?1501636017" title="wsite-theme-css" />
+
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+
+<style type='text/css'>
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) div.paragraph, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) p, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-block .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-description, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, #wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
+#wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {color:#626262 !important;}
+.wsite-elements.wsite-footer div.paragraph, .wsite-elements.wsite-footer p, .wsite-elements.wsite-footer .product-block .product-title, .wsite-elements.wsite-footer .product-description, .wsite-elements.wsite-footer .wsite-form-field label, .wsite-elements.wsite-footer .wsite-form-field label{font-family:"Montserrat" !important;}
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) h2, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-long .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-large .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-small .product-title, #wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {font-weight:700 !important;letter-spacing: 0px !important;}
+#wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+.wsite-elements.wsite-footer h2, .wsite-elements.wsite-footer .product-long .product-title, .wsite-elements.wsite-footer .product-large .product-title, .wsite-elements.wsite-footer .product-small .product-title{font-family:"Montserrat" !important;font-weight:400 !important;}
+#wsite-title {font-family:"Montserrat" !important;font-weight:700 !important;letter-spacing: 0px !important;}
+.wsite-menu-default a {letter-spacing: 0px !important;}
+.wsite-menu a {}
+.wsite-image div, .wsite-caption {}
+.galleryCaptionInnerText {}
+.fancybox-title {}
+.wslide-caption-text {}
+.wsite-phone {}
+.wsite-headline,.wsite-header-section .wsite-content-title {font-family:"Montserrat" !important;font-weight:700 !important;text-transform:  none !important;letter-spacing: 2px !important;}
+.wsite-headline-paragraph,.wsite-header-section .paragraph {font-family:"Arial" !important;text-transform:  none !important;letter-spacing: 0px !important;}
+.wsite-button-inner {}
+.wsite-not-footer blockquote {font-family:"Lora" !important;}
+.wsite-footer blockquote {}
+.blog-header h2 a {}
+#wsite-content h2.wsite-product-title {}
+.wsite-product .wsite-product-price a {}
+@media screen and (min-width: 767px) {.wsite-elements.wsite-not-footer:not(.wsite-header-elements) div.paragraph, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) p, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-block .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-description, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, #wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {font-size:16px !important;line-height:23px !important;}
+#wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
+.wsite-elements.wsite-footer div.paragraph, .wsite-elements.wsite-footer p, .wsite-elements.wsite-footer .product-block .product-title, .wsite-elements.wsite-footer .product-description, .wsite-elements.wsite-footer .wsite-form-field label, .wsite-elements.wsite-footer .wsite-form-field label{font-size:13px !important;}
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) h2, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-long .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-large .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-small .product-title, #wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {font-size:30px !important;line-height:21px !important;}
+#wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+.wsite-elements.wsite-footer h2, .wsite-elements.wsite-footer .product-long .product-title, .wsite-elements.wsite-footer .product-large .product-title, .wsite-elements.wsite-footer .product-small .product-title{font-size:11px !important;}
+#wsite-title {font-size:20px !important;}
+.wsite-menu-default a {font-size:14px !important;}
+.wsite-menu a {}
+.wsite-image div, .wsite-caption {}
+.galleryCaptionInnerText {}
+.fancybox-title {}
+.wslide-caption-text {}
+.wsite-phone {}
+.wsite-headline,.wsite-header-section .wsite-content-title {font-size:53px !important;line-height:56px !important;}
+.wsite-headline-paragraph,.wsite-header-section .paragraph {font-size:26px !important;line-height:18px !important;}
+.wsite-button-inner {}
+.wsite-not-footer blockquote {font-size:30px !important;}
+.wsite-footer blockquote {}
+.blog-header h2 a {}
+#wsite-content h2.wsite-product-title {}
+.wsite-product .wsite-product-price a {}
+</style>
+
+		<script>
+var STATIC_BASE = '//cdn1.editmysite.com/';
+var ASSETS_BASE = '//cdn2.editmysite.com/';
+var STYLE_PREFIX = 'wsite';
+</script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+
+<script type="text/javascript" src="https://cdn2.editmysite.com/js/lang/en/stl.js?buildTime=1234&"></script>
+<script src="https://cdn2.editmysite.com/js/site/main.js?buildTime=1234"></script><script type="text/javascript">_W.configDomain = "www.weebly.com";</script><script>_W.relinquish && _W.relinquish()</script>
+<script type="text/javascript" src="https://cdn2.editmysite.com/js/lang/en/stl.js?buildTime=1234&"></script><script> _W.themePlugins = [];</script><script type="text/javascript"> _W.recaptchaUrl = "https://www.google.com/recaptcha/api.js"; </script><script type="text/javascript"><!--
+	var IS_ARCHIVE = 1;
+	var DISABLE_NAV_MORE = 1;
+	function initFlyouts(){
+		initPublishedFlyoutMenus(
+			[{"id":"806876221965242619","title":"home","url":"ndcnd.html","target":"","nav_menu":false,"nonclickable":false},{"id":"291295926326943236","title":"group members","url":"group-members.html","target":"","nav_menu":false,"nonclickable":false},{"id":"190989367624495796","title":"Publications","url":"publications.html","target":"","nav_menu":false,"nonclickable":false},{"id":"508633301721002758","title":"software","url":"software.html","target":"","nav_menu":false,"nonclickable":false}],
+			"806876221965242619",
+			'',
+			'active',
+			false,
+			{"navigation\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}} class=\"wsite-menu-item-wrap\">\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\t{{#membership_required}}\n\t\t\tdata-membership-required=\"{{.}}\"\n\t\t{{\/membership_required}}\n\t\tclass=\"wsite-menu-item\"\n\t\t>\n\t\t{{{title_html}}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n","navigation\/flyout\/list":"<div class=\"wsite-menu-wrap\" style=\"display:none\">\n\t<ul class=\"wsite-menu\">\n\t\t{{#children}}{{> navigation\/flyout\/item}}{{\/children}}\n\t<\/ul>\n<\/div>\n","navigation\/flyout\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}}\n\tclass=\"wsite-menu-subitem-wrap {{#is_current}}wsite-nav-current{{\/is_current}}\"\n\t>\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\tclass=\"wsite-menu-subitem\"\n\t\t>\n\t\t<span class=\"wsite-menu-title\">\n\t\t\t{{{title_html}}}\n\t\t<\/span>{{#has_children}}<span class=\"wsite-menu-arrow\">&gt;<\/span>{{\/has_children}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n"},
+			{"hasCustomMembership":true,"hasCustomMinicart":true}
+		)
+	}
+//-->
+</script>
+		
+		
+	</head>
+	<body class="header-page  wsite-page-index  sticky-nav-off full-width-on header-scroll-animate-off  wsite-theme-light"><div class="wrapper">
+    <div class="unite-header">
+      <div class="nav-wrap">
+        <div class="container">
+          <label class="hamburger"><span></span></label>
+          <div class="logo"><span class="wsite-logo">
+
+<a href="">	
+	<span id="wsite-title">Neural Dynamics and Computing Group at Notre Dame<font color="white" size="1"><br /><br />Robert Rosenbaum</font></span>
+	
+</a>
+</span></div>
+          <div class="nav desktop-nav"><ul class="wsite-menu-default">
+		<li id="active" class="wsite-menu-item-wrap">
+			<a
+						href="ndcnd.html"
+				class="wsite-menu-item"
+				>
+				home
+			</a>
+			
+		</li>
+		<li id="pg291295926326943236" class="wsite-menu-item-wrap">
+			<a
+						href="group-members.html"
+				class="wsite-menu-item"
+				>
+				group members
+			</a>
+			
+		</li>
+		<li id="pg190989367624495796" class="wsite-menu-item-wrap">
+			<a
+						href="publications.html"
+				class="wsite-menu-item"
+				>
+				Publications
+				
+			</a>
+			
+		</li>
+		<li id="pg508633301721002758" class="wsite-menu-item-wrap">
+			<a
+						href="software.html"
+				class="wsite-menu-item"
+				>
+				software
+			</a>
+			
+		</li>
+</ul>
+</div>
+
+
+
+          <div class="nav membership-cart"><span id="member-login" class="wsite-custom-membership-wrapper"><a href="#" id="wsite-nav-login-a"></a></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner-wrap">
+      <div class="wsite-elements wsite-not-footer wsite-header-elements">
+	<div class="wsite-section-wrap">
+	<div  class="wsite-section wsite-header-section wsite-section-bg-image" style="height: 150px;background-image: url(&quot;images/482708116.jpg&quot;) ;background-repeat: no-repeat ;background-position: undefined undefined ;background-size: 100% ;background-color: transparent ;background-size: cover;" >
+		<div class="wsite-section-content">
+			
+
+      
+		</div>
+		<div class=""></div>
+	</div>
+</div>
+
+</div>
+
+    </div>
+
+
+    <div class="main-wrap">
+      <div id="wsite-content" class="wsite-elements wsite-not-footer">
+	<div class="wsite-section-wrap">
+	<div class="wsite-section wsite-body-section wsite-background-10" style="height: auto;" >
+		<div class="wsite-section-content">
+          <div class="container">
+          
+          
+
+          
+
+<div class="wsite-spacer" style="height:25px;"></div>
+<div class="wsite-spacer" style="height:25px;"></div>
+
+						
+			<div class="wsite-section-elements">
+				<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="wsite-multicol-table">
+		<tbody class="wsite-multicol-tbody">
+			<tr class="wsite-multicol-tr">
+			
+			
+				
+<td class="wsite-multicol-col" style="width:33.797405802214%; padding:0 15px;">
+					
+						
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:20px;padding-bottom:20px;margin-left:0px;margin-right:0px;text-align:center">
+<a>
+<img src="images/NatureSchematicForWWW.jpg" alt="Picture" style="width:auto;max-width:90%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div class="paragraph" style="text-align:center;"><font color="#626262">A collaboration with experimental neuroscientists showed that wiring rules emerging in trained recurrent neural network are similar to those measured in neural circuits in the brain (see <strong><a href="https://www.nature.com/articles/s41586-025-08840-3" target="_blank">Ding et al., <em>Nature</em>, 2023</a></strong></font>).</font><br /></div>
+
+
+					
+				</td>	
+				
+						
+			
+			
+<td class="wsite-multicol-col" style="width:33.797405802214%; padding:0 15px;">
+					
+						
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0px;margin-right:0px;text-align:center">
+<a>
+<img src="images/BookDiagram.svg" alt="Picture" style="width:auto;max-width:85%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div class="paragraph" style="text-align:center;"><font color="#626262">Open access computational neuroscience textbook with freely available Python Notebooks  (open access available from <strong><a href="https://mitpress.ublish.com/ebook/modeling-neural-circuits-made-simple-with-python-preview/12788/Cover"><em>MIT Press</em>, 2024</a></strong>; hard copy also available from <strong><a href="https://www.amazon.com/Modeling-Neural-Circuits-Computational-Neuroscience/dp/0262548089" target="_blank">
+Amazon</a></strong></font>; code available on <strong><a href="https://github.com/RobertRosenbaum/ModelingNeuralCircuits">github</a></strong> and <a href="https://drive.google.com/drive/u/2/folders/1UFS60MnpSUHIGsnGyIbsmtJliZLd3b2c"><strong>Drive</a></strong>).</font><br /></div>
+
+					
+				</td>	
+			
+			
+<td class="wsite-multicol-col" style="width:33.797405802214%; padding:0 15px;">
+					
+						
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0px;margin-right:0px;text-align:center">
+<a>
+<img src="images/MetaLearnDiagramB.jpg" alt="Picture" style="width:auto;max-width:80%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div class="paragraph" style="text-align:center;"><font color="#626262">Postdoc Navid Shervani-Tabar used meta-learning to discover biologically plausible plasticity rules (see <strong><a href="https://www.nature.com/articles/s41467-023-37562-1" target="_blank">Shervani-Tabar and Rosenbaum, <em>Nature Communications</em>, 2023</a></strong></font>).</font><br /></div>
+
+
+					
+				</td>	
+				
+									
+			
+
+				</tr>
+		</tbody>
+	</table>
+</div></div></div>
+          
+          
+
+
+<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="wsite-multicol-table">
+		<tbody class="wsite-multicol-tbody">
+			<tr class="wsite-multicol-tr">
+				
+				
+				
+			<br><br>				
+			
+			
+		
+<td class="wsite-multicol-col" style="width:27.379400260756%; padding:0 15px;">
+					
+
+
+
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:0px;padding-bottom:0px;margin-left:0px;margin-right:0px;text-align:center">
+<a>
+<img src="images/animation1.gif?1501615178" alt="Picture" style="width:200;max-width:76%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+
+
+
+<div class="paragraph" style="text-align:center;"><font color="#626262">Undergraduate student, David Connelly, studied synaptic scaling laws that arise from axonal growth dynamics.</font></div>
+
+
+					
+				</td>					
+							
+				
+		
+<td class="wsite-multicol-col" style="width:33.797405802214%; padding:0 15px;">
+					
+						
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0px;margin-right:0px;text-align:center">
+<a>
+<img src="images/FixedPointRNN.svg" alt="Picture" style="width:auto;max-width:70%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div class="paragraph" style="text-align:center;"><font color="#626262">PhD student Vicky Zhu derived a re-parameterization that improves learning of long term dependencies in recurrent networks (see <strong><a href="https://direct.mit.edu/neco/article/36/8/1568/123708?casa_token=hxncD7Mig4EAAAAA:o5EBQW3OKrhpTnh1pjpkjCsA2DTWJhuytZxiwIVb-8oclM1NDlYn2CiKjmH8v7zoaIg5ooMD4A
+" target="_blank">Zhu and Rosenbaum, <em>Neural Computation</em>, 2024</a></strong></font>).</font><br /></div>
+
+
+
+					
+				</td>				
+									
+	
+				
+						
+				
+				
+					
+				
+				<td class="wsite-multicol-col" style="width:35.333333333333%; padding:0 15px;">
+					
+						
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<a>
+<img src="images/supertrexPanel.svg?1501726436" alt="Picture" style="width:250;max-width:60%" />
+<img src="images/T3STSmall.gif?1501726436" alt="Picture" style="width:200;max-width:38%" />
+
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div class="paragraph" style="text-align:center;">PhD student, Ryan Pyle, modeled cortical and basal ganglia contributions to motor learning by combining reinforcement and unsupervised learning rules for recurrent neural nets (see <font color="#515151"><strong><a href="https://arxiv.org/abs/1803.03304" target="_blank">Pyle and Rosenbaum, <em>Neural Computation</em>, 2019</a></strong></font>).<br /></div>
+
+
+					
+				</td>	
+										
+				
+				</tr>
+		</tbody>
+	</table>
+</div></div></div>
+          
+          
+
+
+<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="wsite-multicol-table">
+		<tbody class="wsite-multicol-tbody">
+			<tr class="wsite-multicol-tr">
+				
+				
+				
+			<br><br>	
+		
+		
+		
+		
+<td class="wsite-multicol-col" style="width:33.797405802214%; padding:0 15px;">
+					
+						
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0px;margin-right:0px;text-align:center">
+<a>
+<img src="images/PCBPPaper.svg" alt="Picture" style="width:auto;max-width:70%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div class="paragraph" style="text-align:center;"><font color="#626262">Mathematical analysis and empirical tests clarify the relationships between predictive coding and backpropagation in deep neural networks  (see <strong><a href="https://arxiv.org/abs/2106.13082" target="_blank">Rosenbaum, <em>PLoS One,</em> 2022</a></strong>).</font><br /></div>
+
+
+					
+				</td>	
+			
+				
+				
+<td class="wsite-multicol-col" style="width:33.333333333333%; padding:0 15px;">
+					
+						
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<a>
+<img src="images/NatNeuro17Panel.svg?1501725105" alt="Picture" style="width:254;max-width:100%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div class="paragraph" style="text-align:center;">Stochastic analysis, spiking network simulations, and a collaboration with experimental neuroscientists showed how spatial connectivity structure shapes correlated variability in neural circuits (see <font color="#515151"><strong><a href="https://www.nature.com/neuro/journal/v20/n1/abs/nn.4433.html" target="_blank">Rosenbaum et al., <em>Nature Neuroscience</em>, 2017</a></strong></font>).</div>
+
+
+					
+				</td>				
+				
+				
+			
+		
+				
+					<td class="wsite-multicol-col" style="width:28.82319393703%; padding:0 15px;">
+					
+						
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:0px;padding-bottom:0px;margin-left:0px;margin-right:0px;text-align:center">
+<a>
+<img src="images/Animation5.gif?1501623784" alt="Picture" style="width:60%;max-width:100%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div class="paragraph" style="text-align:center;"><font color="#626262">Undergraduate student, Gabrielle Thivierge, used integro-differential equations to model visual hallucinations evoked by pattern forming dynamics in visual cortex.</font><br /></div>
+
+
+					
+				</td>	
+						
+				
+				
+				
+			</tr>
+		</tbody>
+	</table>
+</div></div></div>
+
+
+
+
+          
+          
+						<div class="wsite-spacer" style="height:25px;"></div>
+						
+						
+			<div class="wsite-section-elements">
+				<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="wsite-multicol-table">
+		<tbody class="wsite-multicol-tbody">
+			<tr class="wsite-multicol-tr">
+				
+				
+						
+							
+				
+				<td class="wsite-multicol-col" style="width:28.82319393703%; padding:0 30px;">
+					
+						
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:0px;padding-bottom:0px;margin-left:0px;margin-right:0px;text-align:center">
+<a>
+<img src="images/SemiBalPaper.jpg" alt="Picture" style="width:100%;max-width:100%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div class="paragraph" style="text-align:center;"><font color="#626262">PhD students, Cody Baker and Vicky Zhu developed a mathematical approach for studying nonlinear stimulus representations in cortical circuits with balanced excitation and inhibition (see <strong><a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008192" target="_blank">Baker, Zhu, and Rosenbaum, <em>PLoS Comp. Bio.</em>, 2020</a></strong></font>).</font><br /></div>
+
+
+					
+				</td>			
+							
+							
+
+	<td class="wsite-multicol-col" style="width:33.797405802214%; padding:0 15px;">
+					
+						
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0px;margin-right:0px;text-align:center">
+<a>
+<img src="images/SpatialUnstablePanel.svg?1501620792" alt="Picture" style="width:auto;max-width:70%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div class="paragraph" style="text-align:center;"><font color="#626262">PhD student, Ryan Pyle, used Fokker-Planck approaches to 
+explain pattern-forming instabilities that improve the computational power of recurrent spiking neural networks (see <strong><a href="Papers/PylePRL17Combined.pdf" target="_blank">Pyle and Rosenbaum, <em>PRL</em>, 2017</a></strong>).</font><br /></div>
+
+
+					
+				</td>		
+				
+				
+				
+	
+	
+	
+	
+	
+	
+				<td class="wsite-multicol-col" style="width:33.333333333333%; padding:0 15px;">
+					
+						
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<a>
+<img src="images/WBalPanel.svg?1501725828" alt="Picture" style="width:307;max-width:75%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div class="paragraph" style="text-align:center;">PhD student, Christopher Ebsch, showed how  excitatory-inhibitory balance determines neural circuits' responses to natural and optogenetic stimuli (see <font color="#515151"><strong><a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006048" target="_blank">Ebsch  and Rosenbaum, <em>PLoS Comp. Bio.</em>, 2018</a></strong></font>).<br /></div>
+
+
+					
+				</td>	
+	
+	
+	
+	
+						</tr>
+		</tbody>
+	</table>
+</div></div></div>
+          
+          
+
+
+
+
+
+
+			</div>
+		</div>
+      </div>
+
+	</div>
+</div>
+
+			</div>
+		</div>
+      </div>
+
+	</div>
+	
+	
+</div>
+
+</div>
+
+
+    </div>
+
+
+
+  <div class="nav mobile-nav">
+    <label class="hamburger"><span></span></label>
+    <ul class="wsite-menu-default">
+    		<li id="active" class="wsite-menu-item-wrap">
+    			<a
+    						href="ndcnd.html"
+    				class="wsite-menu-item"
+    				>
+    				home
+    			</a>
+    			
+    		</li>
+    		<li id="pg291295926326943236" class="wsite-menu-item-wrap">
+    			<a
+    						href="group-members.html"
+    				class="wsite-menu-item"
+    				>
+    				group members
+    			</a>
+    			
+    		</li>
+    		<li id="pg190989367624495796" class="wsite-menu-item-wrap">
+    			<a
+    						href="publications.html"
+    				class="wsite-menu-item"
+    				>
+    				Publications
+    			</a>
+    			
+    		</li>
+    		<li id="pg508633301721002758" class="wsite-menu-item-wrap">
+    			<a
+    						href="software.html"
+    				class="wsite-menu-item"
+    				>
+    				software
+    			</a>
+    			
+    		</li>
+    </ul>
+  </div>
+
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'nxe1ajf',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+
+	<script type="text/javascript" src="files/theme/plugins.js"></script>
+  <script type="text/javascript" src="files/theme/custom.js"></script>
+
+		
+	</body>
+</html>

@@ -1,0 +1,215 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      7932,        174]*)
+(*NotebookOutlinePosition[      8563,        196]*)
+(*  CellTagsIndexPosition[      8519,        192]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+    \(cf[t_]\  := \ RGBColor[1, 0, 0]\), "\[IndentingNewLine]", 
+    \(\(FillColor\  = \ RGBColor[1,  .75,  .75];\)\), "\[IndentingNewLine]", 
+    \(<< Graphics`PlotField`\), "\[IndentingNewLine]", 
+    \(<< Graphics`Arrow`\), "\n", 
+    \(<< Graphics`InequalityGraphics`\), "\[IndentingNewLine]", 
+    \(\($TextStyle = {FontFamily \[Rule] "\<Times\>", FontSize \[Rule] 10, 
+          FontWeight -> "\<Bold\>", 
+          FontSlant -> "\<Italic\>"};\)\[IndentingNewLine]\[IndentingNewLine] \
+(*\ Define\ A[t]\ *) \), "\[IndentingNewLine]", 
+    \(\(B\  = \ {{\(-10\), 12}, {0, \(-1\)}};\)\), "\[IndentingNewLine]", 
+    \(G\  := \ {{l1, 0}, {0, l2}}\), "\[IndentingNewLine]", 
+    \(\(\(A[t_]\  := \ 
+      MatrixExp[G\ t] . B . 
+        MatrixExp[\(-G\)\ t]\)\(\[IndentingNewLine]\)\(\[IndentingNewLine]\)
+    \) (*\ Define\ the\ solution\ to\ x' = 
+        A[t] x\ *) \), "\[IndentingNewLine]", 
+    \(\(\(f1[t_]\  := \ 
+      MatrixExp[G\ t] . 
+        MatrixExp[\((B\  - 
+                G)\)\ t]\)\(\[IndentingNewLine]\)\(\[IndentingNewLine]\)
+    \) (*\ 
+      Some\ parameters\ for\ the\ graphics\ *) \), "\[IndentingNewLine]", 
+    \(\(prx1\  = \ \(-30\);\)\), "\n", 
+    \(\(prx2\  = \ 110;\)\), "\[IndentingNewLine]", 
+    \(\(pry1 = \(- .25\);\)\), "\[IndentingNewLine]", 
+    \(\(pry2 = 2;\)\), "\[IndentingNewLine]", 
+    \(\(stepsize\  = \ 4/40;\)\), "\n", 
+    \(\(nframes\  = \ 40;\)\), "\n", 
+    \(\(x0\  = \ \(-20\);\)\), "\n", 
+    \(\(\(y0\  = \ 2;\)\(\[IndentingNewLine]\)
+    \)\), "\[IndentingNewLine]", 
+    \(\(l1\  = \ 3;\)\), "\[IndentingNewLine]", 
+    \(\(l2\  = 1;\)\[IndentingNewLine]\[IndentingNewLine] (*\ 
+      Initialize\ t1\ so\ that\ t1\ begins\ just\ slightly\ off\ \ of\ 1\ *) \
+\), "\[IndentingNewLine]", 
+    \(\(t1\  = \ \(-stepsize\) +  .001;\)\), "\[IndentingNewLine]", 
+    \(\(v1 := \ \(Eigenvectors[
+            A[t1]]\)[\([1]\)]\ ;\)\), "\[IndentingNewLine]", 
+    \(\(v2\  := \ \(Eigenvectors[
+            A[t1]]\)[\([2]\)];\)\), "\[IndentingNewLine]", 
+    \(\(animation\  = \ \n\ \ Table[\n\ \ \ \ t1\  = \ 
+            t1\  + \ 
+              stepsize; \[IndentingNewLine]\[IndentingNewLine]\ \ \ \ \
+Graphics[Show[\[IndentingNewLine]\[IndentingNewLine] (*\ 
+                Shade\ the\ unstable\ regions\ \
+*) \[IndentingNewLine]InequalityPlot[{x1, y1} . A[t1] . {x1, y1} > 0, \ {x1, 
+                  prx1, prx2}, {y1, pry1, pry2}, 
+                DisplayFunction \[Rule] \ Identity, 
+                AspectRatio\  \[Rule] \ 1, \ Ticks \[Rule] None, 
+                PlotRange\  -> \ {{prx1, \ prx2}, \ {pry1, \ pry2}}, 
+                AxesLabel\  -> \ {\*"\"\<\!\(x\_1\)(t)\>\"", \
+\*"\"\<\!\(x\_2\)(t)\>\""}, 
+                Fills\  \[Rule] \ 
+                  FillColor], \[IndentingNewLine]\[IndentingNewLine] (*\ 
+                Plot\ the\ solution\ up\ to\ t1\ *) \n\ \ \ \ \ \ \
+ParametricPlot[f1[t] . {x0, y0}, \ {t, \ 0, \ t1}, \ 
+                PlotStyle\  -> \ \n\ \ \ \ \ \ \ \ \ {Thickness[ .0075]}, \ 
+                DisplayFunction \[Rule] \ Identity, \ 
+                AspectRatio\  \[Rule] \ 1, \ Ticks \[Rule] None, 
+                PlotRange\  -> \ {{prx1, \ prx2}, \ {pry1, \ pry2}}, 
+                AxesLabel\  -> \ {\*"\"\<\!\(x\_1\)(t)\>\"", \
+\*"\"\<\!\(x\_2\)(t)\>\""}], \[IndentingNewLine]\[IndentingNewLine]\
+\[IndentingNewLine] (*\ 
+                Plot\ the\ vector\ field\ \
+*) \[IndentingNewLine]PlotVectorField[
+                A[t1] . {x1, x2}, {x1, prx1, prx2}, {x2, pry1, pry2}, 
+                ColorFunction\  \[Rule] \ cf, \ 
+                DisplayFunction\  \[Rule] \ Identity, \ 
+                ScaleFactor\  \[Rule] \ 1.25, \ 
+                PlotPoints\  \[Rule] \ 
+                  20], \[IndentingNewLine]\[IndentingNewLine]\
+\[IndentingNewLine] (*\ 
+                Plot\ the\ current\ posisition\ of\ the\ solution\ \
+*) \[IndentingNewLine]ListPlot[{f1[t1] . {x0, y0}}, \ 
+                PlotStyle\  -> \ {RGBColor[0, 1, 0], \ PointSize[ .02]}, 
+                DisplayFunction\  \[Rule] \ 
+                  Identity], \[IndentingNewLine]\[IndentingNewLine] (*\ 
+                Plot\ the\ eigenvectors\ \
+*) \[IndentingNewLine]ParametricPlot[\((v1\ x)\), \ {x, \(-200\), 200}, 
+                PlotStyle\  \[Rule] \ {Thickness[ .01], RGBColor[0, 0, 1]}, \ 
+                DisplayFunction\  \[Rule] \ 
+                  Identity], \[IndentingNewLine]ParametricPlot[\((v2\ x)\), \ \
+{x, \(-200\), 200}, \ 
+                PlotStyle\  \[Rule] \ {Thickness[ .01], RGBColor[0, 0, 1]}, \ 
+                DisplayFunction\  \[Rule] \ 
+                  Identity]\[IndentingNewLine]\[IndentingNewLine]]], \
+\[IndentingNewLine]\n\ \ \ \ {n, \ 1, \ nframes, \ 
+            1}];\)\n\[IndentingNewLine]\[IndentingNewLine] (*\ 
+      Export\ animation\ as\ a\ gif\ *) \), "\[IndentingNewLine]", 
+    \(Export["\<4_4Fa.gif\>", \ 
+      animation, \n\ \ \ ConversionOptions\  -> \ {"\<Loop\>"\  -> \ 
+            True, "\<AnimationDisplayTime\>" \[Rule] \  .1}, 
+      ImageResolution\  -> \ 144]\[IndentingNewLine]\[IndentingNewLine] (*\ 
+      Export\ a\ snapshot\ to\ use\ as\ a\ thumbnail\ *) \), "\
+\[IndentingNewLine]", 
+    \(Export["\<4_4Fa_tn.gif\>", 
+      animation[\([nframes - 5]\)]]\), "\[IndentingNewLine]", 
+    \(Null\)}], "Input"],
+
+Cell[BoxData[
+    RowBox[{\(General::"spell1"\), \(\(:\)\(\ \)\), "\<\"Possible spelling \
+error: new symbol name \\\"\\!\\(pry1\\)\\\" is similar to existing symbol \\\
+\"\\!\\(prx1\\)\\\". \\!\\(\\*ButtonBox[\\\"More\[Ellipsis]\\\", \
+ButtonStyle->\\\"RefGuideLinkText\\\", ButtonFrame->None, \
+ButtonData:>\\\"General::spell1\\\"]\\)\"\>"}]], "Message"],
+
+Cell[BoxData[
+    RowBox[{\(General::"spell1"\), \(\(:\)\(\ \)\), "\<\"Possible spelling \
+error: new symbol name \\\"\\!\\(pry2\\)\\\" is similar to existing symbol \\\
+\"\\!\\(prx2\\)\\\". \\!\\(\\*ButtonBox[\\\"More\[Ellipsis]\\\", \
+ButtonStyle->\\\"RefGuideLinkText\\\", ButtonFrame->None, \
+ButtonData:>\\\"General::spell1\\\"]\\)\"\>"}]], "Message"],
+
+Cell[BoxData[
+    \("C:/Files/work/paper/webpage/4_4Fa.gif"\)], "Output"],
+
+Cell[BoxData[
+    \("C:/Files/work/paper/webpage/4_4Fa_tn.gif"\)], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for X",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{495, 527},
+WindowMargins->{{192, Automatic}, {Automatic, 13}}
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 5267, 98, 1515, "Input"],
+Cell[7046, 153, 356, 5, 46, "Message"],
+Cell[7405, 160, 356, 5, 46, "Message"],
+Cell[7764, 167, 73, 1, 27, "Output"],
+Cell[7840, 170, 76, 1, 27, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

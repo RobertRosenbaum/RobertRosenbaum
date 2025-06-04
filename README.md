@@ -1,2 +1,1 @@
-I'm a professor at The University of Notre Dame. You can visit my academic website at [RobertRosenbaum.github.io](https://RobertRosenbaum.github.io) for information about my research, publications, and teaching.
-
+I'm a professor at The University of Notre Dame. You can visit [my academic website](https://robertrosenbaum.github.io/robertrosenbaum/ndcnd.html) for information about my research.
